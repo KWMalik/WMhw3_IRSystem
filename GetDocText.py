@@ -7,7 +7,7 @@ import sys
 import codecs
 import os
 from elementtree.ElementTree import parse
-from Doc import Doc
+from model.Doc import Doc
 
 if len(sys.argv) == 3:
     
@@ -16,12 +16,12 @@ if len(sys.argv) == 3:
     
     for filename in filelist:        
         #Parse a file as an xml object
-        xml = parse(sys.argv[1] + "\\" + filename)
-        d = Doc(xml.getroot())
+        #Need to be modified
+        d = Doc(sys.argv[1] + "\\" + filename)       
         
         #Output as a pure text
         fout = codecs.open(sys.argv[2]+ "\\" + filename, encoding='utf-8', mode='w')
-        fout.write(d.text)
+        fout.write(d.title)
         fout.close()
         
 else:

@@ -7,7 +7,7 @@ import sys
 import codecs
 import os
 from elementtree.ElementTree import parse
-from Doc import Doc
+from model.Doc import Doc
 
 if len(sys.argv) == 3:
     
@@ -21,9 +21,9 @@ if len(sys.argv) == 3:
         bi = newpath + '_bigram '
         tri = newpath + '_trigram '        
         
-        #os.system('create-ngram.exe -vocab vocab.all -n 1 -o ' + uni + ' -encoding utf8 ' + path) 
-        #os.system('create-ngram.exe -vocab vocab.all -n 2 -o ' + bi + ' -encoding utf8 ' + path)
-        #os.system('create-ngram.exe -vocab vocab.all -n 3 -o ' + tri + ' -encoding utf8 ' + path)        
+        os.system('create-ngram.exe -vocab vocab.all -n 1 -o ' + uni + ' -encoding utf8 ' + path) 
+        os.system('create-ngram.exe -vocab vocab.all -n 2 -o ' + bi + ' -encoding utf8 ' + path)
+        os.system('create-ngram.exe -vocab vocab.all -n 3 -o ' + tri + ' -encoding utf8 ' + path)        
         os.system('merge-ngram.exe -o ' +newpath+'_ngram ' + uni + bi + tri)
         
 else:
